@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+for i 
+do
+	if [[ -d $i ]]; then
+		echo "Compressing $i"
+		tar -cf "$i.tar" $i
+		xz -T 0 -zev "$i.tar"
+	fi
+done

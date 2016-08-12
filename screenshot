@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ "$1" = "-u" ]
+then
+    scrot -zu $HOME/Pictures/screenshot/%Y-%m-%d-%T.png
+else
+    scrot -z $HOME/Pictures/screenshot/%Y-%m-%d-%T.png
+fi

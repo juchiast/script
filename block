@@ -1,0 +1,6 @@
+#!/usr/bin/perl
+# block site
+for $a (@ARGV) {
+	chomp $a;
+	system("echo ::1 localhost.localdomain $a >> /etc/hosts");
+}

@@ -1,0 +1,37 @@
+#!/usr/bin/perl
+$info = "code grep with line number and perl regex\
+cgrep [FILE].. [-p] REGEX";
+use warnings;
+use Term::ANSIColor;
+die $info if @ARGV == 0;
+my @f;
+my $regex = pop @ARGV;
+my $perl_regex = 0;
+if ($ARGV[$#ARGV] eq "-p") {
+	$perl_regex = 1;
+	pop @ARGV;
+}
+push(@f, split(`ls -d $_`)) for @ARGV;
+
+sub codegrep {
+	my $s = $_[0];
+	my $res = '';
+	my $i = 1;
+	for (split(/\n/, $s)) {
+		if ($perl_regex) {
+			$res.= color('magenta').$i.color('reset')." $_\n" if m/$regex/;
+		}else{
+			$res.= color('magenta').$i.color('reset')." $_\n" if m/\Q$regex\E/;
+		}
+		$i++;
+	}
+	return $res;
+}
+
+for $name(@f) {
+	my $res = &codegrep(join('',`cat $name`));
+	if ($res ne '') {
+		print color('blue'), "$name:\n", color('reset');
+		print $res;
+	}
+}

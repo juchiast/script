@@ -1,0 +1,21 @@
+#!/usr/bin/python
+import sys, threading, re, os
+from subprocess import call
+
+FNULL = open(os.devnull, "w")
+def run(arg):
+    call(arg, stdout=FNULL, stderr=FNULL)
+class T (threading.Thread):
+    def __init__(self, name):
+        threading.Thread.__init__(self)
+        self.name = name
+    def run(self):
+        run(['mplayer', self.name])
+run(['mplayer'])
+track = sys.argv[1: ]
+Th = [T(s) for s in track];
+for t in Th:
+    t.start()
+call(['arecord', '-f', 'cd', '-t', 'wav', 'out.wav'])
+for t in Th:
+    t.join()

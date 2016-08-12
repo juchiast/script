@@ -1,0 +1,3 @@
+#!/usr/bin/perl
+# copy content of a file
+system("xclip -sel clip < $ARGV[0]") if @ARGV>0;
