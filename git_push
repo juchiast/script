@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 my@repo = ('appmenu', 'backup', 'clock', 'dict', 'perl',
-           'script', 'termise', 'timeline', 'vntyper');
+           'script', 'termise', 'timeline', 'vntyper', 'mysite');
 
 for (@repo) {
     print "Enter $_\n";
