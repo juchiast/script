@@ -3,5 +3,10 @@ if [ "$1" = "-u" ]
 then
     scrot -zu $HOME/Pictures/screenshot/%Y-%m-%d-%H-%M-%S.png
 else
-    scrot -z $HOME/Pictures/screenshot/%Y-%m-%d-%H-%M-%S.png
+    if [ "$1" = "-d" ]
+    then
+        scrot -z -d 3 $HOME/Pictures/screenshot/%Y-%m-%d-%H-%M-%S.png
+    else
+        scrot -z $HOME/Pictures/screenshot/%Y-%m-%d-%H-%M-%S.png
+    fi
 fi
