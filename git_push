@@ -1,10 +1,12 @@
 #!/usr/bin/perl
-my@repo = ('appmenu', 'backup', 'clock', 'dict', 'perl',
-           'script', 'termise', 'timeline', 'vntyper', 'mysite');
+my@repo = ('appmenu', 'backup', 'dict', 'perl',
+           'script', 'termise', 'timeline', 'vntyper');
 
 for (@repo) {
+if (-d $_) {
     print "Enter $_\n";
     chdir $_;
     system "git push -u";
     chdir '..';
+}
 }
