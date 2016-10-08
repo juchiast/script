@@ -2,4 +2,3 @@
 
 tar -cf $1.tar $1
 xz -zev $1.tar
-rm -R $1
