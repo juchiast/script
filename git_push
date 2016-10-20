@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 my@repo = ('appmenu', 'backup', 'dict', 'perl',
-           'script', 'termise', 'timeline', 'vntyper'
+           'script', 'termise', 'timeline', 'vntyper',
            'site', 'sitedb', 'sitejs');
 
 for (@repo) {
