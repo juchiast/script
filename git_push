@@ -1,13 +1,15 @@
 #!/usr/bin/perl
+my$pwd = $ENV{'PWD'};
 my@repo = ('appmenu', 'backup', 'dict', 'perl',
            'script', 'termise', 'timeline', 'vntyper',
-           'site', 'sitedb', 'sitejs');
+           'siteproject', 'siteproject/site', 'siteproject/sitejs', 
+           'siteproject/sitedb', 'siteproject/sitecrawler');
 
 for (@repo) {
-if (-d $_) {
-    print "Enter $_\n";
-    chdir $_;
-    system "git push -u";
-    chdir '..';
-}
+    if (-d $_) {
+        print "Enter $_\n";
+        chdir $_;
+        system "git push -u";
+        chdir $pwd;
+    }
 }
