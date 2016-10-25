@@ -9,7 +9,7 @@ for (@repo) {
     if (-d $_) {
         print "Enter $_\n";
         chdir $_;
-        system "git push -u";
+        system "git push -u origin master";
         chdir $pwd;
     }
 }
