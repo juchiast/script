@@ -2,14 +2,15 @@
 my$pwd = $ENV{'PWD'};
 my@repo = ('appmenu', 'backup', 'dict', 'perl',
            'script', 'termise', 'timeline', 'vntyper',
-           'siteproject', 'siteproject/site', 'siteproject/sitejs', 
-           'siteproject/sitedb', 'siteproject/sitecrawler');
+           'siteproject', 'siteproject/frontend', 'siteproject/backend', 
+           'siteproject/db', 'siteproject/crawler',
+           'siteproject/frontend/bootstrap');
 
 for (@repo) {
     if (-d $_) {
         print "Enter $_\n";
         chdir $_;
-        system "git push -u origin master";
+        system "git push";
         chdir $pwd;
     }
 }
