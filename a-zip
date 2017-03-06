@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+for i 
+do
+	if [[ -d $i ]]; then
+		echo "Compressing $i"
+                zip -r $i.zip $i
+	fi
+done
