@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+while(1) {
+    $acpi=`acpi`;
+    ($percent)=$acpi=~/(\d*)%/g;
+    $discharge=$acpi=~/Discharging/;
+    if ($percent<=20 && $discharge) {
+        system "xmessage -center 'Battery low $percent%. Please Charge.'";
+    }
+    sleep 60;
+}

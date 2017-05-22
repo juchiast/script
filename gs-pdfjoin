@@ -1,0 +1,11 @@
+#!/usr/bin/python
+import sys
+from subprocess import call
+if len(sys.argv) < 2:
+    print("Usage: gs-pdfjoin <input file 1> ... <output file>");
+    sys.exit(1)
+else:
+    command = ['gs',
+        '-dBATCH', '-dNOPAUSE', '-q', '-sDEVICE=pdfwrite',
+        '-sOutputFile=' + sys.argv[-1]] + sys.argv[1:-1]
+    call(command)
