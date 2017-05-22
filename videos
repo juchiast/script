@@ -1,9 +1,9 @@
 #!/usr/bin/perl
 $arg = "";
-if (length(@ARGV) > 0) {
+if (@ARGV > 0) {
     $arg = $ARGV[0];
 } else {
     $arg = `xclip -o`;
     chomp $arg;
 }
-system("youtube-dl -o - $arg 2>/dev/null | vlc -vvv - 2>/dev/null");
+system("youtube-dl -o - $arg 2>/dev/null | mpv - 2>/dev/null");
