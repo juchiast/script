@@ -1,7 +1,9 @@
 #!/usr/bin/perl
-
-if ($ARGV > 0) {
-    system("mpv --force-window $ARGV[0]");
+$arg = "";
+if (length(@ARGV) > 0) {
+    $arg = $ARGV[0];
 } else {
-    system("xclip -o | xargs mpv --force-window");
+    $arg = `xclip -o`;
+    chomp $arg;
 }
+system("youtube-dl -o - $arg 2>/dev/null | vlc -vvv - 2>/dev/null");
