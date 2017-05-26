@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+echo -n 'Rust: '
+rg --files -t rust | xargs -d '\n' cat | wc -l
+
+echo -n 'C++: '
+rg --files -t cpp | xargs -d '\n' cat | wc -l
+
+echo -n 'JS: '
+rg --files -t js | xargs -d '\n' cat | wc -l
+
+echo -n 'Python: '
+rg --files -t py | xargs -d '\n' cat | wc -l
+
+echo -n 'Ruby: '
+rg --files -t ruby | xargs -d '\n' cat | wc -l
+
+echo -n 'Perl: '
+rg --files -t perl | xargs -d '\n' cat | wc -l

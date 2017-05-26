@@ -1,10 +1,12 @@
 #!/usr/bin/perl
 my$pwd = $ENV{'PWD'};
-my@repo = ('appmenu', 'backup', 'dict', 'perl',
-           'script', 'termise', 'timeline', 'vntyper',
+my@repo = ('appmenu', 'backup', 'perl',
+           'script', 'termise', 'timeline',
            'siteproject', 'siteproject/frontend', 'siteproject/backend', 
            'siteproject/db', 'siteproject/crawler',
-           'siteproject/frontend/bootstrap');
+           './vntyper/vntyper', './vntyper/vntyper-gtk',
+           './uni/ktlt', 'keytrack', 'boxcrash'
+        );
 
 for (@repo) {
     if (-d $_) {
@@ -12,5 +14,6 @@ for (@repo) {
         chdir $_;
         system "git push";
         chdir $pwd;
+        print "\n";
     }
 }
