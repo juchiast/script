@@ -1,9 +1,9 @@
 #!/usr/bin/bash
 target=enp0s25
 src=wlo1
-ip='192.168.1.100/24'
+ip='192.168.1.70/24'
 ip link set up dev $target
-ip addr add $ip dev $target
+ip addr add $ip brd 192.168.1.255 scope global dev enp0s25
 sysctl net.ipv4.ip_forward=1
 iptables -t nat -A POSTROUTING -o $src -j MASQUERADE
 iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
